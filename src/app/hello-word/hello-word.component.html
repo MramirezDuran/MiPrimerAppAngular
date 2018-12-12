@@ -1,0 +1,71 @@
+<!-- usando metodo basico --> 
+<h1 class="H1">1.- usando metodo basico</h1>
+<ul>
+  <li>{{ miFamilia[0] }}</li>
+  <li>{{ miFamilia[1] }}</li>
+  <li>{{ miFamilia[2] }}</li>
+  <li>{{ miFamilia[3] }}</li>
+</ul>
+
+
+<!-- usando un directiva comandos de angular -->
+<h1 class="H1">2.- usando un directiva comandos de angular</h1>
+<ul>
+  <li *ngFor="let miFamiliar of miFamilia">
+    {{ miFamiliar }}
+  </li>
+</ul>
+
+<!-- usando un directiva y componentes de angular -->
+<h1 class="H1">3.- usando un directiva y componentes de angular</h1>
+<ul>
+  <app-familar *ngFor="let miFamiliar of miFamilia" [nombreFamiliar]="miFamiliar"></app-familar>
+</ul>
+
+<!-- usando variables y objetos de un componentes de angular -->
+<h1 class="H1">4.-usando variables y objetos de un componentes de angular</h1>
+<div>
+  <p>nombre: {{ miNombre}}</p>
+  <p>edad: {{ edad }}</p>
+  <p>calle: {{ direccion.calle }}</p>
+  <p>ciudad: {{ direccion.ciudad }}</p>
+  <ul>
+    <li *ngFor="let hobby of hobbies">
+      {{hobby}}
+    </li>
+  </ul>
+</div>
+
+<!-- usando eventos con angular -->
+<h1 class="H1">5.- usando eventos con angular</h1>
+<ul>
+    <li *ngFor="let miFamiliar of miFamilia">
+      {{ miFamiliar }} <button (click)="eliminarFamiliar(miFamiliar)">X</button>
+    </li>
+  </ul>
+
+  <button (click)="enviarMenaje('Mensaje enviado')">
+    Hacer Click!
+  </button>
+
+  <!-- manejando el evento submit del formulario y referencias con angular -->
+  <h1 class="H1">6.- manejando el evento submit del formulario y referencias con angular</h1>
+  <form (submit)="enviarFamiliar(nuevoFamiliar)"> 
+    <input type="text" #nuevoFamiliar>
+    <button>
+      agregar familiar
+    </button>
+  </form>
+
+<!-- usando doble enlace o data bindig con angular -->
+<h1 class="H1">7.- usando doble enlace o data bindig con angular</h1>
+<div>
+  <form>
+    <input type="text" name="nombreFamiliar" [(ngModel)]="nombreFamiliar">
+    <input type="text" name="edadFamiliar" [(ngModel)]="edadFamiliar">
+  </form>
+
+  nombre Familiar: {{nombreFamiliar}} <br>
+  edad Familiar: {{edadFamiliar}}
+</div>
+
